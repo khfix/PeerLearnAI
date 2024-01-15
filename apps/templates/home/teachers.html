@@ -1,0 +1,62 @@
+{% extends "layouts/s_base.html" %}
+{% load course_custom_tags %}
+
+{% block title %} Teachers{% endblock %} 
+
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="container">
+  <p class="display-6">Teachers </p>
+  <hr>
+
+  <div class="row">
+    {% for teacher in teachers %}
+     <div class="col mx-auto">
+         <div class="card mx-auto" style="width: 18rem;">
+             <img class="card-img-top" src="{{teacher.avatar.url}}" alt="Card image cap">
+             <div class="card-body">
+                 <h5 class="card-title">{{teacher.name}}</h5>
+                 
+             </div>
+
+             <div class="card-footer p-0">
+                 
+                 <div class="row no-gutters">
+                     
+                     <div class="col border-right">
+
+                      <a href="{% url 'teacher' teacher.id %}" class="btn btn-light btn-block">View Teacher courses</a>
+                  </div>
+                    
+                 </div>
+
+             </div>
+         </div>
+     </div>
+     {% endfor %}
+ </div>
+</div>
+
+
+
+
+
+
+{% endblock content %}
+
+
+
+{% block javascripts %}
+
+  <script>
+    $(document).ready(function() {
+      
+      demo.initDashboardPageCharts();
+
+    });
+  </script>
+
+{% endblock javascripts %}

@@ -1,0 +1,164 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Add Course {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<form method="post" action="{% url 'add_course' %}" enctype="multipart/form-data">
+  {% csrf_token %}
+<div class="row" id="row1">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="title">Add Course</h5>
+      </div>
+      <div class="card-body">
+          <div class="row" id="row1">
+            <div class="col-md-6 pr-md-1">
+              <div class="form-group">
+                <label>Course Name</label>
+                <input type="text" class="form-control" name="name"  >
+              </div>
+            </div>
+            <div class="col-md-6 pl-md-1">
+              <div class="form-group">
+                <label>Category</label>
+                <div class="form-group">
+                  <select class="form-control" name="category">
+                      {%for c in cat%}
+                      <option> {{c.title}}</option>
+                      {%endfor%}
+                    </select>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-6 pr-md-1">
+              <div class="form-group">
+                <label>Course slug</label>
+                <input type="text" class="form-control" name="slug"  >
+              </div>
+            </div>
+          </div>
+          <div class="row" id="row1">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                <input type="text" class="form-control" name="description"  >
+              </div>
+            </div>
+          </div>
+          <div class="row" id="row1">
+            <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label>Price</label>
+                  <input type="number" class="form-control" name="price">
+                </div>
+              </div>
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label>Discount</label>
+                  <input type="number" class="form-control" name="discount">
+                </div>
+              </div>
+            <div class="col-md-3 pr-md-3" >
+              <div class="form-group">
+                <label>Active</label>
+                <div class="input-group-prepend">
+                    <input type="checkbox" name="active">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" id="row1">
+            <div class="col-md-12">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Upload</span>
+              </div>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" name ="thumbnail" id="inputGroupFile01">
+                <label class="custom-file-label" for="inputGroupFile01">Choose Thumbnail</label>
+              </div>
+            </div>
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label>Course Length</label>
+                  <input type="number" class="form-control" name="length">
+                </div>
+              </div>
+           
+          </div>
+          <div class="row" id="row1">
+            <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label>Coupon</label>
+                  <input type="text" class="form-control" name="coupon">
+                </div>
+              </div>
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label>Tags</label>
+                  <input type="text" class="form-control" name="tags">
+                </div>
+              </div>
+
+              
+              <div class="card-header">
+            
+                <h5 class="title">Add Video</h5>
+          <div class="row" id = "Video_row">
+            <div class="col-md-3 pr-md-1">
+                <div class="form-group">
+                  <label>Title</label>
+                  <input type="text" class="form-control" name="title">
+                </div>
+              </div>
+              <div class="col-md-3 pr-md-1">
+                <div class="form-group">
+                  <label>Serial Number</label>
+                  <input type="number" class="form-control" name="serial_number">
+                </div>
+              </div>
+              <div class="col-md-3 pr-md-1">
+                <div class="form-group">
+                  <label>Video Id</label>
+                  <input type="text" class="form-control" name="video_id">
+                </div>
+              </div>
+              <div class="col-md-1 pr-md-1">
+                <div class="form-group">
+                  <label>Is Preview</label>
+                  <div class="input-group-prepend">
+                      <input type="checkbox" name="is_preview">
+                  </div>
+                </div>
+              </div>
+             
+    
+            
+            
+            
+            </div>
+            </div>
+          
+            
+          
+        
+
+      </div>
+      <div class="card-footer">
+        <button type="submit" name="add_course" class="btn btn-fill btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+</div>
+</form>
+
+{% endblock content %}
+
+{% block javascripts %}
+
+{% endblock javascripts %}

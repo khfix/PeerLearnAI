@@ -1,0 +1,139 @@
+{% extends "layouts/first_time.html" %}
+
+{% block title %} Page User {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="title">Add Profile</h5>
+      </div>
+      <div class="card-body">
+        
+          <div class="row">
+            <div class="col-md-5 pr-md-1">
+              <div class="form-group">
+                <label>UserID (disabled)</label>
+                <input type="text" class="form-control" disabled="" value="{{ request.user.id }}">
+              </div>
+            </div>
+            <div class="col-md-3 px-md-1">
+              <div class="form-group">
+                <label>UserName (disabled)</label>
+                <input type="text" class="form-control" disabled="" value="{{ request.user.username }}" >
+              </div>
+            </div>
+    
+            <div class="col-md-4 pl-md-1">
+              <form method="post" action="{% url 'info' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+              <div class="form-group">
+                <label for="exampleInputEmail1">Full Name</label>
+                <input type="text" class="form-control" name="full_name" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 pr-md-1">
+              <div class="form-group">
+                <label>What is your university major?</label>
+                <select class="form-control" name="major" >
+                  <option>Information Technology</option>
+                  <option>Economy</option>
+                  <option>Law</option>
+                  <option>Civil Engineering</option>
+                  <option>English</option>
+                  <option>Graphic Design</option>
+                  <option>Math</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3 pl-md-3">
+              <div class="form-group">
+                <label>University Entry Years</label>
+                <select class="form-control" name="UEY">
+                  <option>2021</option>
+                  <option>2020</option>
+                  <option>2019</option>
+                  <option>2018</option>
+                  <option>2017</option>
+                  <option>2016</option>
+                  <option>2015</option>
+                  <option>2014</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 pr-md-1">
+              <div class="form-group">
+                <label>Your interests or activities:</label>
+                <select class="form-control" name="interests">
+                  <option>Languages</option>
+                  <option>Programming</option>
+                  <option>Mathematics</option>
+                  <option>Data analysis</option>
+                  <option>Physics</option>
+                  <option>Photos edit</option>
+                  <option>Machine learning</option>
+                  <option>Lawyer</option>
+                  <option>Architectural drawing</option>
+                  <option>Statistical dnalysis</option>
+                </select>
+              </div>
+     
+          </div>
+     
+            <div class="col-md-6 pr-md-3">
+              <div class="form-group">
+                <label>Courses you would like to learn in the future:</label>
+                <select class="form-control" name="futur_course">
+                  <option>Java</option>
+                  <option>English</option>
+                  <option>Photoshop</option>
+                  <option>C++</option>
+                  <option>Artificial intelligence</option>
+                  <option>Spanish</option>
+                  <option>Python</option>
+                  <option>Numerical Analysis</option>
+                  <option>Introduction to Arabic Common Law</option>
+                  <option>Social Work: Practice, Policy and Research</option>
+                  <option>Construction Management</option>
+                  <option>Introduction to Engineering Mechanics</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Upload</span>
+              </div>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" name ="avatar" id="inputGroupFile01">
+                <label class="custom-file-label" for="inputGroupFile01">Choose Avatar</label>
+              </div>
+            </div>
+            
+          </div>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-fill btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+  
+     
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

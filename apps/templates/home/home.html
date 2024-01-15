@@ -1,0 +1,95 @@
+{% extends "layouts/s_base.html" %}
+
+
+{% load course_custom_tags %}
+
+{% block title %} Home {% endblock %} 
+
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+<style>
+    .price {
+        font-size: 20px;
+    }
+</style>
+
+<div class="container">
+    <br>
+    <div class="row">
+        {% for course in courses %}
+         <div class="col mx-auto">
+            <div class="card mx-auto" style="width: 18rem;">
+                {% if course.thumbnail %}
+                <img class="card-img-top" src="{{course.thumbnail.url}}" alt="Card image cap">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{course.name}}</h5>
+                    <p class="card-text m-0 p-0">
+                        Save {{course.discount}}%
+                        <br>
+                        <span class="price">
+                            <del>{{course.price|JD}}</del>
+                            &nbsp;
+
+                            <span>{% cal_sellprice course.price course.discount as value %} {{value|JD}}</span>
+                        </span>
+
+                    </p>
+                </div>
+
+                <div class="card-footer p-0">
+                    {% is_enrolled request course as enrolled %}
+
+                    <!--class="row no-gutters"-->
+                    <div >
+                        {% if enrolled %}
+                        <div class="col border-right">
+                            <a href="/course/{{course.slug}}" class="btn btn-light btn-block">Start Course</a>
+                        </div>
+                        {% else %}
+                        <div class="col border-right">
+                            <a href="/check-out/{{course.slug}}" class="btn btn-light btn-block">Enroll Now</a>
+                        </div>
+                    
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        
+        {% endfor %}
+        
+    </div>
+</div>
+
+
+
+
+
+{% endblock content %}
+
+
+
+{% block javascripts %}
+
+  <script>
+    $(document).ready(function() {
+      
+      demo.initDashboardPageCharts();
+
+    });
+
+    window.onload = ()=>{
+      alert("{{error}}")
+        }
+    
+
+  </script>
+
+{% endblock javascripts %}

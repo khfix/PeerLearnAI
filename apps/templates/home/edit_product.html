@@ -1,0 +1,151 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Add Course {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<form method="post" action="/add_course" enctype="multipart/form-data">
+  {% csrf_token %}
+<div class="row" id="row1">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="title">Add Course</h5>
+      </div>
+      <div class="card-body">
+          <div class="row" id="row1">
+            <div class="col-md-6 pr-md-1">
+              <div class="form-group">
+                <label>Course Name</label>
+                {{form.name}}
+              </div>
+            </div>
+            <div class="col-md-6 pl-md-1">
+              <div class="form-group">
+                <label>Category</label>
+                {{form.category}}
+              </div>
+            </div>
+          </div>
+          <div class="row" id="row1">
+            <div class="col-md-12">
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                {{form.description}}
+              </div>
+            </div>
+          </div>
+          <div class="row" id="row1">
+            <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label>Price</label>
+                  {{form.price}}
+                </div>
+              </div>
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label>Discount</label>
+                  {{form.discount}}
+                </div>
+              </div>
+            <div class="col-md-6 pr-md-1" >
+              <div class="form-group">
+                <label>Active</label>
+                {{form.active}}
+              </div>
+            </div>
+          </div>
+          <div class="row" id="row1">
+            <div class="col-md-6 pr-md-1">
+              <div class="mb-3">
+                <label for="formFile" class="form-label">Thumbnail</label>
+                {{form.thumbnail}}
+              </div>
+              </div>
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label>Course Length</label>
+                  {{form.length}}
+                </div>
+              </div>
+           
+          </div>
+          <div class="row" id="row1">
+            <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label>Coupon</label>
+                  {{form.coupon}}
+                </div>
+              </div>
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label>Tags</label>
+                  {{form.tags}}
+                </div>
+              </div>
+
+              
+              <div class="card-header">
+                <h5 class="title">Add Video</h5>
+          <div class="row">
+            <div class="col-md-3 pr-md-1">
+                <div class="form-group">
+                  <label>Title</label>
+                  {{vform.title}}
+                </div>
+              </div>
+              <div class="col-md-3 pr-md-1">
+                <div class="form-group">
+                  <label>Serial Number</label>
+                  {{vform.serial_number}}
+                </div>
+              </div>
+              <div class="col-md-3 pr-md-1">
+                <div class="form-group">
+                  <label>Video Id</label>
+                  {{vform.video_id}}
+                </div>
+              </div>
+              <div class="col-md-1 pr-md-1">
+                <div class="form-group">
+                  <label>Is Preview</label>
+                  {{vform.is_preview}}
+                </div>
+              </div>
+            
+              <!--<button type="button" class="btn btn-primary btn-sm" onclick="addField(this);">Add more </button>--->
+            
+            </div>
+            </div>
+          
+            
+          
+        
+
+      </div>
+      <div class="card-footer">
+        <button type="submit" value="Upload" class="btn btn-fill btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+</div>
+</form>
+
+{% endblock content %}
+
+{% block javascripts %}
+<script>
+function addField(n)
+{
+    var row = n.parentNode.parentNode.cloneNode(true);
+    document.getElementById('Video_row').appendChild(row);
+}
+
+</script>
+
+
+{% endblock javascripts %}

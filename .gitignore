@@ -1,0 +1,11 @@
+*.pyc
+.*swp
+build/
+.project
+.pydevproject
+.idea
+.settings
+/testing/venv
+doc/index.html
+.tox
+env/

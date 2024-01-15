@@ -1,0 +1,68 @@
+
+
+    <div class="sidebar">
+      <div class="sidebar-wrapper">
+        <div class="logo">
+          {% if request.user.is_authenticated %}
+          <a target="_blank" rel="sponsored noopener noreferrer" 
+              class="simple-text logo-normal">
+            TEACHER DASHBOARD
+          </a>
+          {% endif %}
+        </div>
+        
+
+        <ul class="nav">
+        {% if request.user.is_authenticated  and request.user.teacher  %}
+
+          <li class="{% if 'index' in segment %} active {% endif %}">
+            <a href="{% url 'teacher_panel' %}">
+              <i class="tim-icons icon-chart-pie-36"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="{% if 'notifications' in segment %} active {% endif %}">
+            <a href="{% url 'add_course' %}">
+              <i class="tim-icons icon-book-bookmark"></i>
+              <p>Add Course</p>
+            </a>
+          </li> 
+          <li class="{% if 'notifications' in segment %} active {% endif %}">
+            <a href="{% url 'add_video' %}">
+              <i class="tim-icons icon-triangle-right-17"></i>
+              <p>Add Video</p>
+            </a>
+          </li> 
+          <li class="{% if 'notifications' in segment %} active {% endif %}">
+            <a href="{% url 'teacher_course' %}">
+              <i class="tim-icons icon-single-copy-04"></i>
+              <p>My Course</p>
+            </a>
+          </li> 
+          <li class="{% if 'page-user' in segment %} active {% endif %}">
+            <a href="{% url 'page-user' %}">
+              <i class="tim-icons icon-single-02"></i>
+              <p>Teacher Profile</p>
+            </a>
+          </li>
+     
+          <li>
+            <a href="{% url 'logout' %}" >
+              <i class="tim-icons icon-button-power"></i>
+              <p>Logout</p>
+            </a>
+          </li>
+          {% else %}
+          <li class="active">
+            <a target="_blank" href="{% url 'login' %}">
+              
+              <i class="tim-icons icon-spaceship"></i>
+              <p>Login</p>
+            </a>
+          </li>   
+          {% endif %}
+                    
+        </ul>
+        
+      </div>
+    </div>

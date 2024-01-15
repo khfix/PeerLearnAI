@@ -1,0 +1,62 @@
+{% extends "layouts/s_base.html" %}
+{% load course_custom_tags %}
+
+{% block title %} My Course {% endblock %} 
+
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="container">
+  <p class="display-6">My Courses </p>
+  {{profile.money}} JD
+  <hr>
+
+  <div class="row">
+    {% for uc in course %}
+     <div class="col mx-auto">
+         <div class="card mx-auto" style="width: 18rem;">
+             <img class="card-img-top" src="{{uc.course.thumbnail.url}}" alt="Card image cap">
+             <div class="card-body">
+                 <h5 class="card-title">{{uc.course.name}}</h5>
+                 
+             </div>
+
+             <div class="card-footer p-0">
+                 
+                 <div class="row no-gutters">
+                     
+                     <div class="col border-right">
+                      <a href="/course/{{uc.course.slug}}" class="btn btn-light btn-block">Start Course</a>
+                  </div>
+                    
+                 </div>
+
+             </div>
+         </div>
+     </div>
+     {% endfor %}
+ </div>
+</div>
+
+
+
+
+
+
+{% endblock content %}
+
+
+
+{% block javascripts %}
+
+  <script>
+    $(document).ready(function() {
+      
+      demo.initDashboardPageCharts();
+
+    });
+  </script>
+
+{% endblock javascripts %}

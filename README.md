@@ -2,10 +2,6 @@
 
 PeerLearnAI is a Django-based website designed to assist university students in sharing and discovering courses. The platform utilizes machine learning algorithms to suggest courses based on students' interests and previous ratings. Data from an online survey of 300 students was collected to train the machine learning model. The project includes a well-structured database schema to store course and user data.
 
-## Admin Panel
-
-![AI](images/ai.png)
-
 ## Installation
 
 Follow these steps to set up the PeerLearnAI project on your local machine:
